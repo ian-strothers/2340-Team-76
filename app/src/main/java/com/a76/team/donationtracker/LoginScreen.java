@@ -12,9 +12,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class LoginScreen extends AppCompatActivity {
-    private final String correctUser = "user";
-    private final String correctPass = "pass";
-
     private EditText userName;
     private EditText password;
     private Button login;
@@ -28,10 +25,10 @@ public class LoginScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
 
-        userName = findViewById(R.id.editText9);
-        password = findViewById(R.id.editText7);
-        login = findViewById(R.id.button);
-        back = findViewById(R.id.button5);
+        userName = (EditText) findViewById(R.id.editText9);
+        password = (EditText) findViewById(R.id.editText7);
+        login = (Button) findViewById(R.id.button);
+        back = (Button) findViewById(R.id.button5);
 
         toTemp = new Intent(this, Temp.class);
         toWelcome = new Intent(this, WelcomeScreen.class);
@@ -39,15 +36,17 @@ public class LoginScreen extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (userName.getText().toString().equals(correctUser) &&
-                        password.getText().toString().equals(correctPass)) {
+                User u = User.GetUsers().get(userName.getText().toString()); //get the user if the username exists in the system
+                String pw = password.getText().toString(); //reference to password text for convenience
+
+                if (u != null && u.getPassword().equals(pw)) { //if username and password are correct
                     Toast.makeText(getApplicationContext(), "Correct Credentials",
                             Toast.LENGTH_SHORT).show();
 
                     Log.d("SCREEN SWAP: ", "To Temporary Screen");
-                    startActivity(toTemp);
+                    startActivity(toTemp); //login!
                 } else {
-                    Toast.makeText(getApplicationContext(), "Incorrect Credentials",
+                    Toast.makeText(getApplicationContext(), "Incorrect Credentials", //login attempt denied
                             Toast.LENGTH_SHORT).show();
                 }
             }

@@ -16,16 +16,18 @@ public class WelcomeScreen extends AppCompatActivity {
     private Button registerButton;
 
     private Intent toLoginScreen;
+    private Intent toRegisterScreen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_screen);
 
-        loginButton = findViewById(R.id.button2);
-        registerButton = findViewById(R.id.button3);
+        loginButton = (Button) findViewById(R.id.button2);
+        registerButton = (Button) findViewById(R.id.button3);
 
         toLoginScreen = new Intent(this, LoginScreen.class);
+        toRegisterScreen = new Intent(this, RegistrationScreen.class);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,8 +40,8 @@ public class WelcomeScreen extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Not Implemented",
-                        Toast.LENGTH_SHORT).show();
+                Log.d("SCREEN SWAP: ", "To Registration Screen");
+                startActivity(toRegisterScreen);
             }
         });
 

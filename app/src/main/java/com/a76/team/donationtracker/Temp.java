@@ -20,7 +20,7 @@ public class Temp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temp);
 
-        logout = findViewById(R.id.button4);
+        logout = (Button) findViewById(R.id.button4);
 
         toWelcome = new Intent(this, WelcomeScreen.class);
 
