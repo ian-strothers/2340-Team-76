@@ -12,7 +12,7 @@
         <activity
             android:name=".LoginScreen"
             android:label="@string/title_activity_login_screen"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".WelcomeScreen"
             android:label="@string/title_activity_welcome_screen"
@@ -26,10 +26,14 @@
         <activity
             android:name=".Temp"
             android:label="@string/title_activity_temp"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".RegistrationScreen"
             android:label="@string/title_activity_registration_screen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".LocationsScreen"
+            android:label="@string/title_activity_locations_screen"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

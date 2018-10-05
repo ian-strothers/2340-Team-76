@@ -17,7 +17,7 @@ public class LoginScreen extends AppCompatActivity {
     private Button login;
     private Button back;
 
-    private Intent toTemp;
+    private Intent toLocation;
     private Intent toWelcome;
 
     @Override
@@ -30,7 +30,7 @@ public class LoginScreen extends AppCompatActivity {
         login = (Button) findViewById(R.id.button);
         back = (Button) findViewById(R.id.button5);
 
-        toTemp = new Intent(this, Temp.class);
+        toLocation = new Intent(this, LocationsScreen.class);
         toWelcome = new Intent(this, WelcomeScreen.class);
 
         login.setOnClickListener(new View.OnClickListener() {
@@ -44,7 +44,7 @@ public class LoginScreen extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
 
                     Log.d("SCREEN SWAP: ", "To Temporary Screen");
-                    startActivity(toTemp); //login!
+                    startActivity(toLocation); //login!
                 } else {
                     Toast.makeText(getApplicationContext(), "Incorrect Credentials", //login attempt denied
                             Toast.LENGTH_SHORT).show();

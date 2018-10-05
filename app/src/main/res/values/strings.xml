@@ -4,4 +4,5 @@
     <string name="title_activity_welcome_screen">WelcomeScreen</string>
     <string name="title_activity_temp">Temp</string>
     <string name="title_activity_registration_screen">RegistrationScreen</string>
+    <string name="title_activity_locations_screen">LocationsScreen</string>
 </resources>

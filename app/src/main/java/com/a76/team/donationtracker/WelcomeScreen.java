@@ -9,7 +9,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class WelcomeScreen extends AppCompatActivity {
     private Button loginButton;
@@ -22,6 +21,8 @@ public class WelcomeScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_screen);
+
+        new User("User", "User", "pass", UserType.USER); //default user for debug
 
         loginButton = (Button) findViewById(R.id.button2);
         registerButton = (Button) findViewById(R.id.button3);
