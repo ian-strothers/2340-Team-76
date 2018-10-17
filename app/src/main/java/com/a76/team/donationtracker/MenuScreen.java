@@ -1,7 +1,7 @@
 package com.a76.team.donationtracker;
 
-import android.os.Bundle;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -10,27 +10,25 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-public class WelcomeScreen extends AppCompatActivity {
-    private Button loginButton;
-    private Button registerButton;
+public class MenuScreen extends AppCompatActivity {
+    private Button logout;
+    private Button locationsButton;
 
     private Intent toLoginScreen;
-    private Intent toRegisterScreen;
+    private Intent toLocations;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome_screen);
+        setContentView(R.layout.activity_menu_screen);
 
-        new User("User", "User", "pass", UserType.USER); //default user for debug REMOVE
-
-        loginButton = (Button) findViewById(R.id.button2);
-        registerButton = (Button) findViewById(R.id.button3);
+        logout = (Button) findViewById(R.id.button11);
+        locationsButton = (Button) findViewById(R.id.button10);
 
         toLoginScreen = new Intent(this, LoginScreen.class);
-        toRegisterScreen = new Intent(this, RegistrationScreen.class);
+        toLocations = new Intent(this, LocationsScreen.class);
 
-        loginButton.setOnClickListener(new View.OnClickListener() {
+        logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d("SCREEN SWAP: ", "To Login Screen");
@@ -38,11 +36,11 @@ public class WelcomeScreen extends AppCompatActivity {
             }
         });
 
-        registerButton.setOnClickListener(new View.OnClickListener() {
+        locationsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("SCREEN SWAP: ", "To Registration Screen");
-                startActivity(toRegisterScreen);
+                Log.d("SCREEN SWAP: ", "To Locations Screen");
+                startActivity(toLocations);
             }
         });
 
@@ -58,5 +56,4 @@ public class WelcomeScreen extends AppCompatActivity {
             }
         });
     }
-
 }

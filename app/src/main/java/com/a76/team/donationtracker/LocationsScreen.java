@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.util.Log;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ArrayAdapter;
@@ -26,6 +27,7 @@ public class LocationsScreen extends AppCompatActivity {
     private Button logout;
 
     private Intent toWelcome;
+    private Intent toLocDetail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,7 @@ public class LocationsScreen extends AppCompatActivity {
         view = (ListView) findViewById(R.id.locations_view);
 
         toWelcome = new Intent(this, WelcomeScreen.class);
+        toLocDetail = new Intent(this, LocDetailScreen.class);
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +60,21 @@ public class LocationsScreen extends AppCompatActivity {
 
         view.setAdapter(new ArrayAdapter<>(this,
                 R.layout.activity_listview, listNames));
+
+        view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("SCREEN SWAP: ", "To Loc Detail Screen");
+
+                Location loc = locations.get(position);
+
+                Bundle b = new Bundle();
+                b.putSerializable("LOC", loc);
+                toLocDetail.putExtras(b);
+
+                startActivity(toLocDetail);
+            }
+        });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

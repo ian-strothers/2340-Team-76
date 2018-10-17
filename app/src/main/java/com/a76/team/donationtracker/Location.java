@@ -1,6 +1,8 @@
 package com.a76.team.donationtracker;
 
-public class Location {
+import java.io.Serializable;
+
+public class Location implements Serializable {
     private String name;
     private LocationType type;
     private double longitude;
