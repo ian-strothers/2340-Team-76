@@ -7,4 +7,8 @@
     <string name="title_activity_locations_screen">LocationsScreen</string>
     <string name="title_activity_loc_detail_screen">LocDetailScreen</string>
     <string name="title_activity_menu_screen">MenuScreen</string>
+    <string name="title_activity_data_entry">DataEntry</string>
+    <string name="title_activity_data_entry_screen">DataEntryScreen</string>
+    <string name="title_activity_item_list_screen">ItemListScreen</string>
+    <string name="title_activity_item_detail_screen">ItemDetailScreen</string>
 </resources>

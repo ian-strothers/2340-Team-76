@@ -22,7 +22,7 @@ public class WelcomeScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_screen);
 
-        new User("User", "User", "pass", UserType.USER); //default user for debug REMOVE
+        LocalDB.users.put("User", new User("User", "User", "pass", UserType.USER)); //default user for debug REMOVE
 
         loginButton = (Button) findViewById(R.id.button2);
         registerButton = (Button) findViewById(R.id.button3);

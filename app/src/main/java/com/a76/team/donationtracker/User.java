@@ -9,13 +9,6 @@ public class User {
     private String password;
     private UserType type;
 
-    //singleton instance var, gross but we'll get rid of it when we implement firebase
-    private static Map<String, User> Users = new HashMap<>();
-
-    public static Map<String, User> GetUsers() {
-        return Users;
-    }
-
     public User(String name, String userName, String password, UserType type) throws IllegalArgumentException {
         if (name == null || name.equals("")) {
             throw new IllegalArgumentException("Invalid Name");
@@ -33,8 +26,6 @@ public class User {
         this.userName = userName;
         this.password = password;
         this.type     = type;
-
-        Users.put(userName, this);
     }
 
     public String getName() {

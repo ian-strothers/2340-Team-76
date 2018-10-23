@@ -56,6 +56,9 @@ public class RegistrationScreen extends AppCompatActivity {
                     Log.d("SCREEN SWAP: ", "To Welcome Screen");
                     Toast.makeText(getApplicationContext(), "Registration Successful",
                             Toast.LENGTH_SHORT).show();
+
+                    LocalDB.users.put(u.getUserName(), u); //add the user to the database
+
                     startActivity(toWelcome);
                 } catch (IllegalArgumentException e) { //some field was empty
                     Toast.makeText(getApplicationContext(), e.getMessage(),

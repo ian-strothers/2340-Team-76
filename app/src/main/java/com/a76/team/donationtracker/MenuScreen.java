@@ -22,7 +22,7 @@ public class MenuScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_screen);
 
-        logout = (Button) findViewById(R.id.button11);
+        logout =          (Button) findViewById(R.id.button11);
         locationsButton = (Button) findViewById(R.id.button10);
 
         toLoginScreen = new Intent(this, LoginScreen.class);

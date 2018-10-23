@@ -61,4 +61,23 @@ public class Location implements Serializable {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Location location = (Location) o;
+        return location.longitude == longitude &&
+                location.latitude == latitude &&
+                name.equals(location.name) &&
+                type == location.type &&
+                address.equals(location.address) &&
+                phone.equals(location.phone);
+    }
+
+    @Override
+    public int hashCode() { //meh, it works
+        return name.hashCode() + type.toString().hashCode()
+                + (int) longitude + (int) latitude + address.hashCode() + phone.hashCode();
+    }
 }

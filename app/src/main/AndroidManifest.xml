@@ -42,6 +42,18 @@
         <activity
             android:name=".MenuScreen"
             android:label="@string/title_activity_menu_screen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DataEntryScreen"
+            android:label="@string/title_activity_data_entry_screen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ItemListScreen"
+            android:label="@string/title_activity_item_list_screen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ItemDetailScreen"
+            android:label="@string/title_activity_item_detail_screen"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

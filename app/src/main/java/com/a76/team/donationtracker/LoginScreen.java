@@ -36,7 +36,7 @@ public class LoginScreen extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                User u = User.GetUsers().get(userName.getText().toString()); //get the user if the username exists in the system
+                User u = LocalDB.users.get(userName.getText().toString()); //get the user if the username exists in the system
                 String pw = password.getText().toString(); //reference to password text for convenience
 
                 if (u != null && u.getPassword().equals(pw)) { //if username and password are correct

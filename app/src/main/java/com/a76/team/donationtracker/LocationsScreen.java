@@ -21,8 +21,6 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class LocationsScreen extends AppCompatActivity {
-    private List<Location> locations = new ArrayList<>();
-
     private ListView view;
     private Button logout;
 
@@ -36,6 +34,7 @@ public class LocationsScreen extends AppCompatActivity {
 
         //load data from the file
         readData();
+        final List<Location> locations = LocalDB.locations; // reference to loc database
 
         String[] listNames = new String[locations.size()];
 
@@ -121,7 +120,8 @@ public class LocationsScreen extends AppCompatActivity {
                 }
 
                 Log.d("LOCATION CREATED: ", loc.getName());
-                locations.add(loc);
+                LocalDB.locations.add(loc);
+                LocalDB.donationItems.put(loc, new ArrayList<DonationItem>()); //every location needs donation item list
             }
         } catch (IOException e) {
             Log.e("MainActivity", "Error" + line, e);
