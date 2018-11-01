@@ -1,7 +1,7 @@
 package com.a76.team.donationtracker;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -10,47 +10,43 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Button;
 
-import java.util.List;
+import java.util.ArrayList;
 
-public class ItemListScreen extends AppCompatActivity {
-    private ListView view;
+public class SearchResultsActivity extends AppCompatActivity {
     private Button back;
+    private ListView view;
 
-    private Intent toLocDetail;
-    private Intent toItemDetail;
+    private Intent toSearch;
+    private Intent toItemsDetail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_item_list_screen);
+        setContentView(R.layout.activity_search_results);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        final Location l = (Location) getIntent().getExtras().getSerializable("LOC");
-        final List<DonationItem> items = LocalDB.donationItems.get(l);
+        final ArrayList<DonationItem> results = (ArrayList<DonationItem>) getIntent().getExtras().getSerializable("ITS");
 
-        String[] names = new String[items.size()];
-        for (int i = 0; i < items.size(); i++) {
-            names[i] = items.get(i).getName();
+        String[] names = new String[results.size()];
+        for (int i = 0; i < results.size(); i++) {
+            names[i] = results.get(i).getName();
         }
 
-        back = (Button) findViewById(R.id.button16);
-        view = (ListView) findViewById(R.id.items_view);
+        back = (Button) findViewById(R.id.button21);
+        view = (ListView) findViewById(R.id.search_list);
 
-        toLocDetail = new Intent(this, LocDetailScreen.class);
-        toItemDetail = new Intent(this, ItemDetailScreen.class);
+        toSearch = new Intent(this, SearchScreen.class);
+        toItemsDetail = new Intent(this, ItemDetailScreen.class);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("SCREEN SWAP: ", "To Welcome Screen");
-                Bundle b = new Bundle();
-                b.putSerializable("LOC", l);
-                toLocDetail.putExtras(b);
-                startActivity(toLocDetail);
+                Log.d("SCREEN SWAP: ", "To Search Screen");
+                startActivity(toSearch);
             }
         });
 
@@ -60,16 +56,15 @@ public class ItemListScreen extends AppCompatActivity {
         view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.d("SCREEN SWAP: ", "To Item Detail Screen");
+                Log.d("SCREEN SWAP: ", "To Loc Detail Screen");
 
-                DonationItem item = items.get(position);
+                DonationItem it = results.get(position);
 
                 Bundle b = new Bundle();
-                b.putSerializable("IT", item);
-                b.putSerializable("LOC", l);
-                toItemDetail.putExtras(b);
+                b.putSerializable("IT", it);
+                toItemsDetail.putExtras(b);
 
-                startActivity(toItemDetail);
+                startActivity(toItemsDetail);
             }
         });
 

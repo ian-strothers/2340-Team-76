@@ -20,7 +20,7 @@ public class ItemDetailScreen extends AppCompatActivity {
     private TextView description;
     private TextView comments;
 
-    private Intent toItemList;
+    private Intent toMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,6 @@ public class ItemDetailScreen extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         DonationItem it = (DonationItem) getIntent().getExtras().getSerializable("IT");
-        final Location l = (Location) getIntent().getExtras().getSerializable("LOC");
 
         back     = (Button) findViewById(R.id.button17);
         location = (TextView) findViewById(R.id.textView3);
@@ -40,18 +39,14 @@ public class ItemDetailScreen extends AppCompatActivity {
         description = (TextView) findViewById(R.id.textView13);
         comments    = (TextView) findViewById(R.id.textView11);
 
-        toItemList = new Intent(this, ItemListScreen.class);
+        toMenu = new Intent(this, MenuScreen.class);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d("SCREEN SWAP: ", "To Item List");
 
-                Bundle b = new Bundle();
-                b.putSerializable("LOC", l);
-                toItemList.putExtras(b);
-
-                startActivity(toItemList);
+                startActivity(toMenu);
             }
         });
 
@@ -71,5 +66,4 @@ public class ItemDetailScreen extends AppCompatActivity {
             }
         });
     }
-
 }

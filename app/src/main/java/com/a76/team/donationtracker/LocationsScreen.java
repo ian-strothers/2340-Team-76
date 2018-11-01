@@ -121,7 +121,10 @@ public class LocationsScreen extends AppCompatActivity {
 
                 Log.d("LOCATION CREATED: ", loc.getName());
                 LocalDB.locations.add(loc);
-                LocalDB.donationItems.put(loc, new ArrayList<DonationItem>()); //every location needs donation item list
+
+                if (!LocalDB.donationItems.containsKey(loc)) {
+                    LocalDB.donationItems.put(loc, new ArrayList<DonationItem>()); //every location needs donation item list
+                }
             }
         } catch (IOException e) {
             Log.e("MainActivity", "Error" + line, e);

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.a76.team.donationtracker">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -54,6 +56,18 @@
         <activity
             android:name=".ItemDetailScreen"
             android:label="@string/title_activity_item_detail_screen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SearchScreen"
+            android:label="@string/title_activity_search_screen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SearchResultsActivity"
+            android:label="@string/title_activity_search_results"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CategorySearchScreen"
+            android:label="@string/title_activity_category_search_screen"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

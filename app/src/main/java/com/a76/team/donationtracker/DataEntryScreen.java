@@ -21,6 +21,7 @@ import java.util.Locale;
 
 public class DataEntryScreen extends AppCompatActivity {
     private Button back;
+    private EditText name;
     private EditText value;
     private EditText description;
     private Spinner category;
@@ -37,6 +38,7 @@ public class DataEntryScreen extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         back =        (Button) findViewById(R.id.button14);
+        name =        (EditText) findViewById(R.id.editText8);
         value =       (EditText) findViewById(R.id.editText3);
         description = (EditText) findViewById(R.id.editText5);
         category =    (Spinner) findViewById(R.id.spinner2);
@@ -78,6 +80,7 @@ public class DataEntryScreen extends AppCompatActivity {
                     //get location passed from loc detail screen
                     Location loc = (Location) getIntent().getExtras().getSerializable("LOC");
 
+                    String n = name.getText().toString();
                     float val = Float.parseFloat(value.getText().toString());
                     String desc = description.getText().toString();
                     ItemType type = (ItemType) category.getSelectedItem();
@@ -89,7 +92,7 @@ public class DataEntryScreen extends AppCompatActivity {
                         shortDesc = desc.subSequence(0, 50) + "...";
                     }
 
-                    DonationItem item = new DonationItem(tstamp, loc, desc, shortDesc, val, type, comm);
+                    DonationItem item = new DonationItem(n, tstamp, loc, desc, shortDesc, val, type, comm);
 
                     LocalDB.donationItems.get(loc).add(item); //add new item to location's items
 

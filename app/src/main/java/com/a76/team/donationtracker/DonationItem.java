@@ -3,6 +3,7 @@ package com.a76.team.donationtracker;
 import java.io.Serializable;
 
 public class DonationItem implements Serializable {
+    private String name;
     private String timestamp;
     private Location location;
     private String description;
@@ -11,9 +12,13 @@ public class DonationItem implements Serializable {
     private ItemType category;
     private String comments;
 
-    public DonationItem(String timestamp, Location location, String description,
+    public DonationItem(String name, String timestamp, Location location, String description,
                         String shortDescription, float value, ItemType category,
                         String comments) throws IllegalArgumentException {
+        if (name == null || name.equals("")) {
+            throw new IllegalArgumentException("Invalid timestamp");
+        }
+
         if (timestamp == null || timestamp.equals("")) {
             throw new IllegalArgumentException("Invalid timestamp");
         }
@@ -38,6 +43,7 @@ public class DonationItem implements Serializable {
             throw new IllegalArgumentException("Invalid comments");
         }
 
+        this.name = name;
         this.timestamp = timestamp;
         this.location = location;
         this.description = description;
@@ -45,6 +51,14 @@ public class DonationItem implements Serializable {
         this.value = value;
         this.category = category;
         this.comments = comments;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getTimestamp() {

@@ -1,9 +1,8 @@
 package com.a76.team.donationtracker;
 
-import java.util.Map;
-import java.util.HashMap;
+import java.io.Serializable;
 
-public class User {
+public class User implements Serializable {
     private String name;
     private String userName;
     private String password;

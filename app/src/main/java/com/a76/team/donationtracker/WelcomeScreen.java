@@ -10,6 +10,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.File;
+import java.io.IOException;
+
 public class WelcomeScreen extends AppCompatActivity {
     private Button loginButton;
     private Button registerButton;
@@ -21,7 +24,13 @@ public class WelcomeScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_screen);
-
+        if (!LocalDB.loaded) {
+            try {
+                LocalDB.loadData(new File(getFilesDir(), "data.bin"));
+            } catch (IOException e) {
+                Log.e("Deserialization:", "failed to deserialize, possible on first run of the app", e);
+            }
+        }
         LocalDB.users.put("User", new User("User", "User", "pass", UserType.USER)); //default user for debug REMOVE
 
         loginButton = (Button) findViewById(R.id.button2);

@@ -11,4 +11,7 @@
     <string name="title_activity_data_entry_screen">DataEntryScreen</string>
     <string name="title_activity_item_list_screen">ItemListScreen</string>
     <string name="title_activity_item_detail_screen">ItemDetailScreen</string>
+    <string name="title_activity_search_screen">SearchScreen</string>
+    <string name="title_activity_search_results">SearchResultsActivity</string>
+    <string name="title_activity_category_search_screen">CategorySearchScreen</string>
 </resources>
