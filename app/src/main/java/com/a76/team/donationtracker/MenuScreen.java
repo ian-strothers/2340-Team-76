@@ -16,11 +16,13 @@ public class MenuScreen extends AppCompatActivity {
     private Button logout;
     private Button locationsButton;
     private Button searchButton;
+    private Button mapButton;
     private Button saveButton;
 
     private Intent toLoginScreen;
     private Intent toLocations;
     private Intent toSearch;
+    private Intent toMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +32,13 @@ public class MenuScreen extends AppCompatActivity {
         logout =          (Button) findViewById(R.id.button11);
         locationsButton = (Button) findViewById(R.id.button10);
         searchButton    = (Button) findViewById(R.id.button19);
+        mapButton       = (Button) findViewById(R.id.button27);
         saveButton      = (Button) findViewById(R.id.button25);
 
         toLoginScreen = new Intent(this, LoginScreen.class);
         toLocations = new Intent(this, LocationsScreen.class);
         toSearch = new Intent(this, SearchScreen.class);
+        toMap = new Intent(this, MapScreen.class);
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +61,14 @@ public class MenuScreen extends AppCompatActivity {
             public void onClick(View v) {
                 Log.d("SCREEN SWAP: ", "To Search Screen");
                 startActivity(toSearch);
+            }
+        });
+
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("SCREEN SWAP: ", "To Map Screen");
+                startActivity(toMap);
             }
         });
 

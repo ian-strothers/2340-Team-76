@@ -27,11 +27,17 @@ public class SearchResultsActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        String[] names;
         final ArrayList<DonationItem> results = (ArrayList<DonationItem>) getIntent().getExtras().getSerializable("ITS");
+        if (results.size() == 0) {
+            names = new String[1];
+            names[0] = "Nothing found";
+        } else {
+            names = new String[results.size()];
 
-        String[] names = new String[results.size()];
-        for (int i = 0; i < results.size(); i++) {
-            names[i] = results.get(i).getName();
+            for (int i = 0; i < results.size(); i++) {
+                names[i] = results.get(i).getName();
+            }
         }
 
         back = (Button) findViewById(R.id.button21);

@@ -14,4 +14,5 @@
     <string name="title_activity_search_screen">SearchScreen</string>
     <string name="title_activity_search_results">SearchResultsActivity</string>
     <string name="title_activity_category_search_screen">CategorySearchScreen</string>
+    <string name="title_activity_map_screen">Map</string>
 </resources>
